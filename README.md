@@ -36,3 +36,10 @@ A plataforma deve proporcionar ao usuário uma experiência imersiva e informati
 2. A interface deve permitir que o usuário consiga usar a plataforma de maneira intuitiva e simples.
 3. Organização e estruturação do código com comentários, caso seja necessário.
 4. Segurança com os dados dos usuários.
+
+### Observação
+Estes repositórios foram desenvolvidos individualmente, e podem ser localizados nos endereços:
+- Frontend: https://github.com/jvvictorls/frontend-slztur
+- Backend: https://github.com/jvvictorls/slztur-backend
+
+Onde o histórico de commits pode ser observado.
