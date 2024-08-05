@@ -15,3 +15,5 @@ async function testConnection() {
 }
 
 testConnection();
+
+export default sequelize;
