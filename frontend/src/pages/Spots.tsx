@@ -1,7 +1,7 @@
 import Card from '../components/Card';
 import { getSpots } from '../service/requests';
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import '../styles/spots.css';
 
 type userType = {
@@ -12,13 +12,14 @@ type userType = {
 
 function Spots() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [spots, setSpots] = useState([]);
   const { filter } = location.state || {};
   useEffect(() => {
     getSpots().then((spots) => setSpots(spots));
   }, []);
   const user = JSON.parse(localStorage.getItem('user') || '{}') as userType;
-
+  if (!user) return navigate('/login');
   return (
     <div className="spots-container">
       {filter ? (
