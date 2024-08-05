@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc --project tsconfig.json",
-    "start": "ts-node src/server.ts && npm run db:reset",
-    "prestart": "npm run build",
+    "start": "ts-node src/server.ts",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "prestart": "npm run build && db:migrate",
     "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "predev": "npm run db:reset",
     "dev": "tsnd --watch \"./src/**\" ./src/server.ts",
