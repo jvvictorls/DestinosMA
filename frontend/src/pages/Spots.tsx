@@ -2,6 +2,13 @@ import Card from '../components/Card';
 import { getSpots } from '../service/requests';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import '../styles/spots.css';
+
+type userType = {
+  name: string;
+  email: string;
+  password: string;
+};
 
 function Spots() {
   const location = useLocation();
@@ -10,16 +17,18 @@ function Spots() {
   useEffect(() => {
     getSpots().then((spots) => setSpots(spots));
   }, []);
+  const user = JSON.parse(localStorage.getItem('user') || '{}') as userType;
+
   return (
-    <div>
+    <div className="spots-container">
       {filter ? (
-        <div>
-          <h2>Spots</h2>
+        <div className="spots-content">
+          <h2>Olá, {user?.name}</h2>
           <Card spot={spots} filter={location.state.filter} />
         </div>
       ) : (
-        <div>
-          <h2>Spots</h2>
+        <div className="spots-content">
+          <h2>Olá, {user?.name}</h2>
           <Card spot={spots} />
         </div>
       )}
