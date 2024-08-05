@@ -1,11 +1,11 @@
 import '../styles/login.css';
-import { login } from '../service/requests';
+import { signUp } from '../service/requests';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-function Login() {
+function SignIn() {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ email: '', password: '' });
+  const [form, setForm] = useState({ name: '', email: '', password: '' });
   const [error, setError] = useState(false);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -14,7 +14,7 @@ function Login() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const response = await login(form.email, form.password);
+      const response = await signUp(form.email, form.password, form.name);
       console.log(response);
       localStorage.setItem('user', JSON.stringify(response));
       navigate('/spots');
@@ -26,7 +26,14 @@ function Login() {
   return (
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h1>Faça Login!</h1>
+        <h1>Registre-se!</h1>
+        <input
+          name="name"
+          value={form.name}
+          onChange={handleChange}
+          type="text"
+          placeholder="Nome"
+        />
         <input
           type="text"
           name="email"
@@ -43,12 +50,12 @@ function Login() {
         ></input>
         {error && <p>Usuário ou senha inválidos</p>}
         <button type="submit">Login</button>
-        <Link className="register" to="/signup">
-          Ainda não tem conta? Registre-se
+        <Link className="login" to="/login">
+          Já possui Conta? Faça Login
         </Link>
       </form>
     </div>
   );
 }
 
-export default Login;
+export default SignIn;
