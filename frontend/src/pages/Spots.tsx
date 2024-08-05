@@ -19,7 +19,7 @@ function Spots() {
     getSpots().then((spots) => setSpots(spots));
   }, []);
   const user = JSON.parse(localStorage.getItem('user') || '{}') as userType;
-  if (!user) return navigate('/login');
+  if (!user.name) return navigate('/login');
   return (
     <div className="spots-container">
       {filter ? (

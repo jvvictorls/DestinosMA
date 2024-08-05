@@ -10,6 +10,7 @@
 
 .thumb-container:hover {
     box-shadow: 2px 2px 2px 2px #ccc;
+    background-color: gray;
 }
 
 .thumb-image > img {
