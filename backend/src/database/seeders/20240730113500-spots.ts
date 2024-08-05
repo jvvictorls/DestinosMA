@@ -69,7 +69,7 @@ export default {
 
     },
     {
-      name: 'Parque Nacional da Chapada das Mesas',
+      name: 'Parque da Chapada das Mesas',
       description:'O Parque Nacional da Chapada das Mesas é uma unidade de conservação localizada no estado do Maranhão, que abrange uma área de mais de 160 mil hectares de cerrado e floresta amazônica. O parque é conhecido por sua rica biodiversidade, com uma grande variedade de espécies de fauna e flora, incluindo animais como onças-pintadas, tamanduás-bandeira, araras e tucanos. O local oferece trilhas ecológicas, cachoeiras, mirantes e áreas para camping, além de atividades como observação de aves e passeios de barco. O Parque Estadual do Mirador é um ótimo destino para os amantes da natureza e para quem busca aventura e contato com o meio ambiente.',
       city: 'Carolina',
       type: 'Natureza',

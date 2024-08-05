@@ -8,7 +8,7 @@ type MapProps = {
 function Map({ lat, lng }: MapProps) {
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: 'AIzaSyCD0AN71KJxlxZRi30prcsXKbmGP0NV37s',
+    googleMapsApiKey: process.env.VITE_APP_GOOGLE_MAPS_API_KEY as string,
   });
   return (
     <div>
@@ -19,7 +19,7 @@ function Map({ lat, lng }: MapProps) {
             width: '100%',
             margin: '50px 0',
           }}
-          center={{ lat: lat, lng: lng }}
+          center={{ lat, lng }}
           zoom={12}
         >
           <></>
