@@ -34,11 +34,13 @@ services:
     environment:
       - APP_PORT=3001
       - JWT_SECRET=secret
-      - DB_USER=root
-      - DB_PASSWORD=password
-      - DB_HOST=db
-      - DB_NAME=slztur
-      - DB_PORT=3306
+      - MYSQLHOST=db
+      - MYSQLPASSWORD=kOfnLLPISvmuwyWAnXcobGJqRdcLkyIw  
+      - MYSQLPORT=3306
+      - MYSQLUSER=root
+      - MYSQL_DATABASE=railway
+      - MYSQL_ROOT_PASSWORD=kOfnLLPISvmuwyWAnXcobGJqRdcLkyIw
+      - MYSQLDATABASE=railway
     healthcheck:
       test: ["CMD", "lsof", "-t", "-i:3001"]
       timeout: 10s
@@ -49,8 +51,13 @@ services:
     ports:
       - "3306:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=slztur
+      - MYSQLDATABASE=railway
+      - MYSQLHOST=db
+      - MYSQLPASSWORD=kOfnLLPISvmuwyWAnXcobGJqRdcLkyIw
+      - MYSQLPORT=3306
+      - MYSQLUSER=root
+      - MYSQL_DATABASE=railway
+      - MYSQL_ROOT_PASSWORD=kOfnLLPISvmuwyWAnXcobGJqRdcLkyIw
     restart: always
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]

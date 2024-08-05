@@ -6,7 +6,9 @@
   "scripts": {
     "build": "tsc --project tsconfig.json",
     "start": "ts-node src/server.ts",
+    "prestart": "npm run build",
     "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "predev": "npm run db:reset",
     "dev": "tsnd --watch \"./src/**\" ./src/server.ts",
     "test": "mocha -r ts-node/register ./tests/**/*$NAME*.test.ts -t 10000 --exit",
     "lint": "tsc && eslint . --ext .ts",
@@ -16,6 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^9.0.0",
