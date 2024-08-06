@@ -43,3 +43,6 @@ Estes repositórios foram desenvolvidos individualmente, e podem ser localizados
 - Backend: https://github.com/jvvictorls/slztur-backend
 
 Onde o histórico de commits pode ser observado.
+
+## Link da hospedagem:
+- https://frontend-production-d358.up.railway.app/
