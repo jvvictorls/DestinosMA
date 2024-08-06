@@ -16,10 +16,10 @@ function Spots() {
   const [spots, setSpots] = useState([]);
   const { filter } = location.state || {};
   useEffect(() => {
+    if (!user.name) return navigate('/login');
     getSpots().then((spots) => setSpots(spots));
   }, []);
   const user = JSON.parse(localStorage.getItem('user') || '{}') as userType;
-  if (!user.name) return navigate('/login');
   return (
     <div className="spots-container">
       {filter ? (
