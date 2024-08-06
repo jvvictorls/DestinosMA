@@ -1,7 +1,17 @@
 import axios from 'axios';
-console.log(import.meta.env.VITE_APP_API_URL);
+
+const PROTOCOL = import.meta.env.VITE_APP_API_PROTOCOL;
+const HOST = import.meta.env.VITE_APP_API_URL;
+
+console.log(HOST, PROTOCOL);
+
 const api = axios.create({
-  baseURL: `${import.meta.env.VITE_APP_API_URL}`,
+  baseURL: `${PROTOCOL}://${HOST}`,
+  timeout: 10000,
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
 });
 
 export const getSpots = async () => {

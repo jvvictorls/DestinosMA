@@ -10,8 +10,8 @@ services:
     volumes:
       - ./frontend:/frontend
     environment:
-      - VITE_APP_API_URL=http://localhost:3001
-      - VITE_APP_PORT=3000
+      - VITE_APP_API_URL=localhost:3001
+      - VITE_APP_API_PROTOCOL=http
       - VITE_GOOGLE_MAPS_API_KEY=AIzaSyCD0AN71KJxlxZRi30prcsXKbmGP0NV37s
     depends_on:
       - backend
